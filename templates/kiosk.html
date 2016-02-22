@@ -1,0 +1,216 @@
+{% set OEC_LOCAL = "/open_exoplanet_catalogue/" %}
+{% set OEC_OUTREACH_LOCAL = "/oec_outreach/" %}
+{% set OEC_IPHONE_LOCAL = "/oec_iphone/" %}
+{% set OEC_GITHUB = "https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue/" %}
+{% set OEC_TABLES_GITHUB = "https://github.com/OpenExoplanetCatalogue/oec_tables/" %}
+<head profile="http://www.w3.org/2005/10/profile">
+	<script type="text/javascript" src="/static/js/d3.v3.min.js"></script>
+	<script type="text/javascript" src="/static/js/rgbcolor.js"></script> 
+	<script type="text/javascript" src="/static/js/canvg.js"></script> 
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<style>
+	  ::-webkit-scrollbar { 
+		display: none; 
+	  }
+	  body {
+		font-family: "Helvetica Neue", sans-serif	;
+		background-color: #000;
+		color: #fff;
+		overflow:hidden;
+	  }
+	  .frame {
+		  position: absolute;
+		  height: 100%;
+		  width: 100%;
+		  left: 0px;
+		  top: -1em;
+	  }
+	  .frame .pad {
+		  padding-bottom: 3em;
+		  padding-left: 12em;
+		  padding-right: 12em;
+		  padding-top: 8em;
+	  }
+	</style>	
+</head>
+<body>
+<div class="outer-container">
+<div class="inner-container">
+<div class="header">
+<div class="title">
+</div> <!-- title -->
+</div> <!-- header -->
+<div class="navigation">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div> <!-- navigation -->
+<div class="content">
+	<div class="frame" id="frame0">
+		<div class="pad">
+			<h1 style="font-size: 5em;">
+				The M51 Galaxy and Saturn
+			</h1>
+			<br />
+			<img src="/static/img/m51.jpg" height="50%"> 
+			<img src="/static/img/saturn.jpg" height="50%"> 
+			<br />
+			Photographs taken right here on campus with the UTSC telescope.
+
+		</div>
+	</div>
+	<div class="frame" id="frame1">
+		<div class="pad">
+			<div style="color:#fff; position: absolute; top:1em; left: 1em; margin:0; padding:0; z-index:2;" >
+				<h1 style="color:#fff; font-size: 5em;">
+					Pluto seen through the UTSC telescope!
+				</h1>
+			</div>
+			<img src="/static/img/pluto.jpg" style="position: absolute; top:0; left: 0;width:100%"> 
+		</div>
+	</div>
+	<div class="frame" id="frame2">
+		<div class="pad">
+			<div style="color:#fff; position: absolute; top:1em; left: 1em; margin:0; padding:0; z-index:2;" >
+				<h1 style="color:#fff; font-size: 5em;">
+					The UTSC Telescope
+				</h1>
+				<h2>Contact Prof. Hanno Rein to get on the telescope mailing list!</h2>
+			</div>
+			<img src="/static/img/telescope.jpg" style="position: absolute; top:0; left: 0;width:100%"> 
+		</div>
+	</div>
+	<div class="frame" id="frame3">
+		<div class="pad">
+			<style>
+			.personcontainer {
+				width: 100%;
+			}
+			.person {
+				clear: both;
+			}
+			.person img{
+				margin-bottom: 1em;
+				margin-right: 1em;
+				width: 210px;
+				height: 210px;
+				float: left;
+				vertical-align: middle;
+			}
+			.person .name{
+				font-size: 3em;
+				width: 100%;
+				vertical-align: middle;
+			}
+			</style>
+			<h1 style="font-size: 3em; margin:0px;">
+				If you are interested in a research project, 
+			</h1>
+			<h1 style="font-size: 5em; margin:0px; margin-bottom:.5em;">
+				talk to us!
+			</h1>
+			<div class="personcontainer">
+				<div class="person">
+					<img src="/static/img/hanno.jpg"/> 
+					<div class="name">
+					Hanno Rein
+					</div>
+					Assistant Professor, SW504C
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<script>
+var frame  	= 0;
+var frameN 	= 3;
+function update_frame(){
+	var oldframe = (frame-1+frameN)%frameN;
+	$("#frame"+oldframe).fadeTo(500,0.,function(){
+		switch(frame){
+			case 0:
+				clear_frame0();
+				break;
+			case 1:
+				clear_frame1();
+				break;
+			case 2:
+				clear_frame2();
+				break;
+			case 3:
+				clear_frame3();
+				break;
+			case 4:
+				clear_frame4();
+				break;
+			case 5:
+				clear_frame5();
+				break;
+			case 6:
+				clear_frame6();
+				break;
+		}
+		$("#frame"+frame).fadeTo(500,1.,function(){
+			switch(frame){
+				case 0:
+					build_frame0();
+					break;
+				case 1:
+					build_frame1();
+					break;
+				case 2:
+					build_frame2();
+					break;
+				case 3:
+					build_frame3();
+					break;
+				case 4:
+					build_frame4();
+					break;
+				case 5:
+					build_frame5();
+					break;
+				case 6:
+					clear_frame6();
+					break;
+			}
+			frame = (frame +1)%frameN;
+		});
+	});
+}
+
+
+$(".frame").hide();
+update_frame();
+
+
+function clear_frame0(){ }
+function build_frame0(){
+     	setTimeout(update_frame,10000);
+}
+
+function clear_frame1(){ }
+function build_frame1(){
+     	setTimeout(update_frame,10000);
+}
+function clear_frame2(){ }
+function build_frame2(){
+     	setTimeout(update_frame,10000);
+}
+
+function clear_frame3(){ }
+function build_frame3(){
+     	setTimeout(update_frame,10000);
+}
+
+</script>
+
+</div> <!-- content -->
+</div> <!-- inner container -->
+</div> <!-- outer container -->
+</body>
+</html>
